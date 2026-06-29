@@ -1,17 +1,12 @@
 <!DOCTYPE html><html><head>
     <meta charset="utf-8">
-    
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-
 <style>
         canvas {
             image-rendering: smooth;
             position: absolute;
             overflow: hidden
         }
-
         body {
             margin: 0;
             padding: 0;
@@ -19,7 +14,6 @@
             overflow: hidden;
             max-height: 100vh;
         }
-
         /* GUI Styles */
         #gui {
             position: fixed;
@@ -37,13 +31,11 @@
             min-width: 320px;
             border: 1px solid #333;
         }
-
         @supports (-webkit-touch-callout: none) {
             #gui {
                 max-height: calc(90vh - 80px) !important;
             }
         }
-
         @media (max-width: 768px) {
             #gui {
                 position: fixed;
@@ -57,27 +49,22 @@
                 max-height: calc(100vh - 50px);
             }
         }
-
         #gui {
             scrollbar-width: none;
             -ms-overflow-style: none;
         }
-
         #gui::-webkit-scrollbar {
             display: none;
         }
-
         #expandableContent {
             display: none;
         }
-
         #gui h3 {
             margin: 0 0 10px 0;
             border-bottom: 1px solid #444;
             padding-bottom: 5px;
             font-size: 13px;
         }
-
         #gui select {
             width: 100%;
             margin-bottom: 15px;
@@ -88,18 +75,15 @@
             font-family: monospace;
             font-size: 11px;
         }
-
         #gui .param {
             margin-bottom: 8px;
         }
-
         #gui label {
             display: block;
             margin-bottom: 2px;
             color: #aaa;
             font-size: 10px;
         }
-
         #gui input[type="range"] {
             width: 100%;
             height: 20px;
@@ -110,7 +94,6 @@
             /* Let the track handle background */
             outline: none;
         }
-
         /* Webkit slider track (Chrome/Safari on all platforms) */
         #gui input[type="range"]::-webkit-slider-track {
             width: 100%;
@@ -119,7 +102,6 @@
             border-radius: 3px;
             border: none;
         }
-
         /* Webkit slider thumb (Chrome/Safari on all platforms) */
         #gui input[type="range"]::-webkit-slider-thumb {
             -webkit-appearance: none;
@@ -135,7 +117,6 @@
             margin-top: -5px;
             /* Center the thumb on the track */
         }
-
         /* Firefox support */
         #gui input[type="range"]::-moz-range-track {
             width: 100%;
@@ -144,7 +125,6 @@
             border-radius: 3px;
             border: none;
         }
-
         #gui input[type="range"]::-moz-range-thumb {
             width: 16px;
             height: 16px;
@@ -154,7 +134,6 @@
             border: none;
             box-shadow: none;
         }
-
         #gui input[type="range"]::-webkit-slider-runnable-track {
             width: 100%;
             height: 6px;
@@ -162,11 +141,9 @@
             border-radius: 3px;
             border: none;
         }
-
         #gui .value-control {
             float: right;
         }
-
         #gui .arrow-btn {
             background: #333;
             color: white;
@@ -183,22 +160,18 @@
             vertical-align: top;
             box-sizing: border-box;
         }
-
         #gui .arrow-btn:hover {
             background: #333;
             border-color: #555;
         }
-
         #gui .arrow-btn:active {
             background: #333;
             border-color: #555;
         }
-
         #gui .arrow-btn:focus {
             outline: none;
             background: #333;
         }
-
         /* Reset any button styles that might be interfering */
         #gui button.arrow-btn {
             background: #333;
@@ -207,12 +180,10 @@
             min-width: 12px;
             max-width: 12px;
         }
-
         #gui button.arrow-btn:hover {
             background: #333;
             border-color: #555;
         }
-
         #gui .value {
             color: #4a9eff;
             font-weight: bold;
@@ -224,14 +195,12 @@
             user-select: none;
             cursor: pointer;
         }
-
         #gui .value.editing {
             background: #222;
             border: 1px solid #4a9eff;
             padding: 0 2px;
             border-radius: 2px;
         }
-
         #gui .value input {
             background: transparent;
             border: none;
@@ -243,18 +212,15 @@
             text-align: center;
             outline: none;
         }
-
         #gui .value input[type="number"] {
             -webkit-appearance: none;
             -moz-appearance: textfield;
         }
-
         #gui .value input[type="number"]::-webkit-outer-spin-button,
         #gui .value input[type="number"]::-webkit-inner-spin-button {
             -webkit-appearance: none;
             margin: 0;
         }
-
         #gui .button-group {
             margin-bottom: 15px;
             padding-bottom: 10px;
@@ -263,7 +229,6 @@
             gap: 10px;
             flex-wrap: wrap;
         }
-
         #gui button {
             flex: 1;
             min-width: 70px;
@@ -276,12 +241,10 @@
             font-size: 11px;
             border-radius: 3px;
         }
-
         #gui .button-group button:hover {
             background: #333;
             border-color: #666;
         }
-
         #gui #toggleGui {
             width: 100%;
             background: transparent;
@@ -303,12 +266,10 @@
             font-style: italic;
             /* Make it look like a subtitle */
         }
-
         #gui #toggleGui:hover {
             opacity: 0.8;
             /* Only become visible on hover */
         }
-
         /* Drag and drop overlay */
         #dropOverlay {
             position: fixed;
@@ -322,13 +283,11 @@
             z-index: 9999;
             pointer-events: none;
         }
-
         #dropOverlay.active {
             display: flex;
             align-items: center;
             justify-content: center;
         }
-
         #dropOverlay .message {
             background: rgba(0, 0, 0, 0.9);
             color: #4a9eff;
@@ -337,7 +296,6 @@
             font-family: monospace;
             font-size: 18px;
         }
-
         /* Notification styles */
         .notification {
             position: fixed;
@@ -353,17 +311,13 @@
             transition: opacity 0.3s;
         }
     </style>
+    <title>Herry</title>
 </head>
-
 <body ondrop="drop(event)" ondragover="allowDrop(event)">
     <canvas id="canvas">Enable JavaScript in your browser</canvas>
-
-    
     <div id="dropOverlay">
         <div class="message">Drop JSON file to load point</div>
     </div>
-
-    
     <div id="gui">
         <button id="toggleGui">Expand Controls ▼</button>
         <div id="expandableContent">
@@ -379,10 +333,6 @@
             
             <input type="file" id="fileInput" accept=".json" style="display: none;">
         </div>
-
     </div>
-
     <script type="text/javascript" src="main.js"></script>
-
-
 </body></html>
